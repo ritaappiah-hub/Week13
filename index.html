@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A privacy-conscious adaptive CRM quality assurance dashboard prototype.">
+  <title>Adaptive CRM QA Workbench</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-mode="compact">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">Q</div>
+        <div><strong>QA Workbench</strong><span>CRM QUALITY INTELLIGENCE</span></div>
+      </div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="side-nav">
+        <a class="nav-link active" href="#overview"><span class="nav-icon">◫</span> Overview</a>
+        <a class="nav-link" href="#test-runs"><span class="nav-icon">✓</span> Test runs</a>
+        <a class="nav-link" href="#defects"><span class="nav-icon">◇</span> Defects</a>
+        <a class="nav-link" href="#adaptive-settings"><span class="nav-icon">✧</span> Adaptive settings</a>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="privacy-card">
+        <span class="privacy-icon">⌑</span>
+        <strong>Private by design</strong>
+        <p>Your preference profile is stored in this browser only. This demo does not connect to a live CRM or send data to a server.</p>
+      </div>
+      <div class="sidebar-footer">Prototype · Version 1.0</div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">QUALITY OPERATIONS / CRM</p>
+          <h1>Quality overview</h1>
+          <p class="page-intro">A focused view of automated testing activity across CRM workflows.</p>
+        </div>
+        <div class="topbar-status"><span class="status-dot"></span> Adaptive engine active</div>
+      </header>
+
+      <section class="adaptive-banner" aria-live="polite">
+        <div class="adaptive-banner-copy">
+          <p class="eyebrow light">YOUR ADAPTIVE WORKSPACE</p>
+          <h2 id="modeHeading">Compact overview</h2>
+          <p id="modeSummary">A concise view that keeps the most important quality signals in focus.</p>
+        </div>
+        <div class="confidence-box">
+          <div class="confidence-heading"><span>Learned preference</span><strong id="confidenceText">33%</strong></div>
+          <div class="confidence-track"><span id="confidenceBar" style="width:33%"></span></div>
+          <small id="learningStatus" aria-live="polite">Starting with a neutral preference profile.</small>
+        </div>
+      </section>
+
+      <section class="feedback-panel" id="adaptive-settings">
+        <div class="feedback-copy">
+          <p class="eyebrow">PERSONALIZATION</p>
+          <h2>Teach the interface</h2>
+          <p>Choose the view that helps you work best. Your feedback updates a small on-device preference model and changes the layout.</p>
+        </div>
+        <div class="feedback-controls">
+          <button class="preference-button" data-preference="compact" type="button">Prefer compact</button>
+          <button class="preference-button" data-preference="visual" type="button">Prefer visual</button>
+          <button class="preference-button" data-preference="detailed" type="button">Prefer detailed</button>
+          <button class="reset-button" id="resetProfile" type="button">Reset learning</button>
+        </div>
+      </section>
+
+      <section class="metrics-grid" aria-label="Quality metrics">
+        <article class="metric-card">
+          <div class="metric-top"><span>Test pass rate</span><span class="metric-icon green">✓</span></div>
+          <strong>94.2%</strong><small><span class="positive">↑ 2.4%</span> compared with prior run</small>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>Open defects</span><span class="metric-icon amber">!</span></div>
+          <strong>12</strong><small><span class="negative">3 high priority</span> require review</small>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>Automation coverage</span><span class="metric-icon blue">◈</span></div>
+          <strong>87%</strong><small><span class="positive">↑ 5.1%</span> this release cycle</small>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span>Latest execution</span><span class="metric-icon violet">◷</span></div>
+          <strong>08:42</strong><small>Today · CRM regression suite</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel trend-panel" id="trendPanel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">AUTOMATION HEALTH</p><h2>Test execution trend</h2></div>
+            <span class="panel-tag">Sample data</span>
+          </div>
+          <p class="panel-description">Pass rate across the latest five scheduled runs.</p>
+          <div class="bar-chart" role="img" aria-label="Sample test pass rates: Monday 82 percent, Tuesday 86 percent, Wednesday 88 percent, Thursday 91 percent, Friday 94 percent.">
+            <div class="bar-row"><span>Mon</span><div class="bar-track"><span style="width:82%"></span></div><b>82%</b></div>
+            <div class="bar-row"><span>Tue</span><div class="bar-track"><span style="width:86%"></span></div><b>86%</b></div>
+            <div class="bar-row"><span>Wed</span><div class="bar-track"><span style="width:88%"></span></div><b>88%</b></div>
+            <div class="bar-row"><span>Thu</span><div class="bar-track"><span style="width:91%"></span></div><b>91%</b></div>
+            <div class="bar-row"><span>Fri</span><div class="bar-track"><span style="width:94%"></span></div><b>94%</b></div>
+          </div>
+          <div class="chart-footnote"><span class="legend-dot"></span> Passed automated checks</div>
+        </article>
+
+        <article class="panel action-panel">
+          <p class="eyebrow">SUGGESTED NEXT STEP</p>
+          <div class="action-symbol">✦</div>
+          <h2 id="recommendationTitle">Review release readiness</h2>
+          <p id="recommendationText">Start with the key quality indicators, then inspect the three high-priority defects before the next release.</p>
+          <button class="primary-button" id="actionButton" type="button">Open suggested review</button>
+          <p class="action-feedback" id="actionFeedback" aria-live="polite">Recommendations are based on the current display mode and sample records.</p>
+        </article>
+      </section>
+
+      <section class="panel results-panel" id="test-runs">
+        <div class="panel-heading">
+          <div><p class="eyebrow">LATEST ACTIVITY</p><h2>Recent automated test runs</h2></div>
+          <span class="panel-tag">Illustrative CRM scenarios</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th scope="col">Test suite</th><th scope="col">Platform</th><th scope="col">Result</th>
+              <th scope="col">Duration</th><th scope="col" class="detail-column">Details</th>
+            </tr></thead>
+            <tbody>
+              <tr><td><strong>Contact validation</strong><span class="row-subtitle">CRM-104</span></td><td>Salesforce</td><td><span class="result-pill passed">Passed</span></td><td>02:14</td><td class="detail-column">Required fields and duplicate checks completed.</td></tr>
+              <tr><td><strong>Opportunity workflow</strong><span class="row-subtitle">CRM-118</span></td><td>Dynamics 365</td><td><span class="result-pill failed">Failed</span></td><td>04:38</td><td class="detail-column">Stage transition assertion needs investigation.</td></tr>
+              <tr><td><strong>Account synchronization</strong><span class="row-subtitle">INT-022</span></td><td>Salesforce</td><td><span class="result-pill passed">Passed</span></td><td>03:06</td><td class="detail-column">Sample integration payload matched expected fields.</td></tr>
+              <tr><td><strong>Case assignment</strong><span class="row-subtitle">CRM-131</span></td><td>Dynamics 365</td><td><span class="result-pill warning">Warning</span></td><td>02:51</td><td class="detail-column">Assignment rule returned a fallback queue.</td></tr>
+              <tr><td><strong>Role permissions</strong><span class="row-subtitle">SEC-009</span></td><td>Salesforce</td><td><span class="result-pill passed">Passed</span></td><td>01:49</td><td class="detail-column">Role-based access checks completed.</td></tr>
+              <tr><td><strong>Lead conversion</strong><span class="row-subtitle">CRM-146</span></td><td>Dynamics 365</td><td><span class="result-pill passed">Passed</span></td><td>03:22</td><td class="detail-column">Conversion and field mapping checks completed.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="detail-note">Detailed mode reveals additional test context. All records on this page are synthetic examples.</p>
+      </section>
+
+      <section class="panel defects-panel" id="defects">
+        <div class="panel-heading">
+          <div><p class="eyebrow">DEFECT MONITOR</p><h2>Priority items</h2></div>
+          <span class="panel-tag">Sample backlog</span>
+        </div>
+        <div class="defect-list">
+          <div class="defect-item"><span class="severity high"></span><div><strong>Opportunity stage transition</strong><p class="detail-copy">Dynamics 365 · Workflow assertion · Owner: CRM QA</p></div><span class="defect-id">DEF-208</span></div>
+          <div class="defect-item"><span class="severity high"></span><div><strong>Incorrect role-based field visibility</strong><p class="detail-copy">Salesforce · Permission validation · Owner: Security QA</p></div><span class="defect-id">DEF-214</span></div>
+          <div class="defect-item"><span class="severity medium"></span><div><strong>Fallback queue assignment</strong><p class="detail-copy">Dynamics 365 · Routing rule · Owner: CRM QA</p></div><span class="defect-id">DEF-221</span></div>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>Adaptive CRM QA Workbench · Educational prototype</span>
+        <span>Uses synthetic data only · No live CRM connection</span>
+      </footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

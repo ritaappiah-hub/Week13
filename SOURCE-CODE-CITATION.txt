@@ -1,0 +1,5 @@
+APA source-code citation template
+
+[Student Name]. (2026). Adaptive CRM QA Workbench (Version 1.0) [Computer software]. GitHub. [Insert the actual GitHub repository URL after uploading the project.]
+
+Do not submit the placeholder as though it were a working URL. Replace it with the repository address after you create and publish the repository.
